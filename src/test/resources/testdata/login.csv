@@ -1,0 +1,4 @@
+username,password,expected
+Admin,admin123,Dashboard
+Admin,wrongpass,Invalid
+
