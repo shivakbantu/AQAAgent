@@ -22,7 +22,7 @@ public class DashboardPage {
     }
 
     public String headerText() {
-        return actions.text(DASHBOARD_HEADER).trim();
+        return actions.text(DASHBOARD_HEADER);
     }
 
     public boolean isAt() {
