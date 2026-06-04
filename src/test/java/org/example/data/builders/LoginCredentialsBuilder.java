@@ -37,9 +37,9 @@ public final class LoginCredentialsBuilder {
             }
         }
         return "";
+    }
 
     private static boolean isBlank(String s) {
         return s == null || s.trim().isEmpty();
-    }
     }
 }
