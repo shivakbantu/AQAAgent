@@ -2,6 +2,8 @@ package org.example.data.builders;
 
 import java.util.Objects;
 
+// Test data builder used by TC_002 (TestRail Case ID: 149)
+
 /**
  * Builder pattern for login test data.
  */
