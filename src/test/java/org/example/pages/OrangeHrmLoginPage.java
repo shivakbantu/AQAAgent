@@ -52,15 +52,14 @@ public class OrangeHrmLoginPage {
      */
     public boolean isLoginFormPresent() {
         return !driver.findElements(USERNAME_INPUT).isEmpty()
-                && !driver.findElements(PASSWORD_INPUT).isEmpty()
-                && !driver.findElements(LOGIN_BUTTON).isEmpty();
-    }
-}
-
 
     /**
      * Used for negative assertion: login page URL should no longer be displayed after successful login.
      */
+    public boolean isCurrentUrlLogin() {
+        return driver.getCurrentUrl().contains("/web/index.php/auth/login");
+    }
+}
     public boolean isCurrentUrlLogin() {
         return driver.getCurrentUrl().contains("/web/index.php/auth/login");
     }
