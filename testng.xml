@@ -4,8 +4,8 @@
         <classes>
             <class name="org.example.tests.LoginTest"/>
             <class name="org.example.tests.TC002VerifySuccessfulLoginRedirectsToDashboardTest"/>
+            <class name="org.example.tests.TC003VerifySuccessfulLoginWithValidCredentialsTest"/>
         </classes>
-            <class name="org.example.tests.TC003VerifySuccessfulLoginWithValidCredentialsTest"/>
-            <class name="org.example.tests.TC003VerifySuccessfulLoginWithValidCredentialsTest"/>
+    </test>
 </suite>
 
