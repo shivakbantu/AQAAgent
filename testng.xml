@@ -3,6 +3,7 @@
     <test name="UI Tests">
         <classes>
             <class name="org.example.tests.LoginTest"/>
+            <class name="org.example.tests.TC002VerifySuccessfulLoginRedirectsToDashboardTest"/>
         </classes>
     </test>
 </suite>
