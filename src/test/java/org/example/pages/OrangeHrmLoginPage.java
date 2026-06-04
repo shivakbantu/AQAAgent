@@ -7,15 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * POM for OrangeHRM Login page (selectors verified via Playwright MCP).
-// Used by: TC_002 (TestRail Case ID: 149)
-
  */
 public class OrangeHrmLoginPage {
 
-    // Playwright-confirmed selectors
-    private static final By USERNAME_INPUT = By.cssSelector("input[name='username']");
-    private static final By PASSWORD_INPUT = By.cssSelector("input[name='password']");
-    private static final By LOGIN_BUTTON   = By.cssSelector("button[type='submit']");
+    // Confirmed via Playwright MCP (do not guess)
+    private static final By USERNAME_INPUT = By.cssSelector("input[name=\"username\"]");
+    private static final By PASSWORD_INPUT = By.cssSelector("input[name=\"password\"]");
+    private static final By LOGIN_BUTTON = By.cssSelector("button[type=\"submit\"]");
 
     private final WebDriver driver;
     private final ElementActions actions;
