@@ -20,7 +20,7 @@ import java.time.Duration;
 /**
  * TestRail: TC_002 (Case ID: 149)
  */
-public class TC002VerifySuccessfulLoginRedirectsToDashboardTest {
+
 
     private final BrowserSession session = BrowserSession.getInstance(); // Singleton
     private WebDriver driver;
