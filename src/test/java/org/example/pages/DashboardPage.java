@@ -27,6 +27,13 @@ public class DashboardPage {
         return actions.text(DASHBOARD_HEADER).trim();
     }
 
+    /**
+     * Alias for consistency across tests.
+     */
+    public String getModuleHeaderText() {
+        return headerText();
+    }
+
     public boolean isAt() {
         try {
             return "Dashboard".equals(headerText());
@@ -37,5 +44,12 @@ public class DashboardPage {
 
     public String currentUrl() {
         return driver.getCurrentUrl();
+    }
+
+    /**
+     * URL-based assertion for successful redirect.
+     */
+    public boolean isAtDashboard() {
+        return currentUrl().contains("/web/index.php/dashboard/index");
     }
 }
