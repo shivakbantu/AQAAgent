@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * POM for OrangeHRM Dashboard page (selectors verified via Playwright MCP).
+// Used by: TC_002 (TestRail Case ID: 149)
+
  */
 public class DashboardPage {
 
