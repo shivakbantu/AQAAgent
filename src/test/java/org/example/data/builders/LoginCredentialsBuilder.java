@@ -1,11 +1,14 @@
 package org.example.data.builders;
 
+import org.example.core.ConfigLoader;
+
 /**
  * Builder facade for constructing LoginCredentials.
  *
- * Sensitive data handling:
- * - Preferred: ORANGEHRM_USERNAME / ORANGEHRM_PASSWORD environment variables
- * - Alternative: -Dapp.username / -Dapp.password JVM system properties
+ * Sensitive data handling (highest priority first):
+ * 1) JVM system properties: -Dapp.username / -Dapp.password
+ * 2) Environment variables: ORANGEHRM_USERNAME / ORANGEHRM_PASSWORD
+ * 3) Config file (local fallback): config/config.properties -> app.username / app.password
  */
 public final class LoginCredentialsBuilder {
 
@@ -14,8 +17,28 @@ public final class LoginCredentialsBuilder {
     }
 
     public static LoginCredentials fromEnvOrSystemProps() {
+        // 1) System properties
         String user = firstNonBlank(System.getProperty("app.username"), System.getenv("ORANGEHRM_USERNAME"));
         String pass = firstNonBlank(System.getProperty("app.password"), System.getenv("ORANGEHRM_PASSWORD"));
+
+        // 3) Config file fallback (load config so it gets cached elsewhere; then read raw properties)
+        if (isBlank(user) || isBlank(pass)) {
+            // Ensure any config side effects/caching happens as per framework convention
+            ConfigLoader.load();
+
+            java.util.Properties props = new java.util.Properties();
+            try (java.io.InputStream is = LoginCredentialsBuilder.class.getClassLoader()
+                    .getResourceAsStream("config/config.properties")) {
+                if (is != null) {
+                    props.load(is);
+                }
+            } catch (java.io.IOException e) {
+                throw new RuntimeException("Failed loading config/config.properties for credential fallback", e);
+            }
+
+            user = firstNonBlank(user, props.getProperty("app.username"));
+            pass = firstNonBlank(pass, props.getProperty("app.password"));
+        }
 
         if (isBlank(user) || isBlank(pass)) {
             throw new IllegalStateException(

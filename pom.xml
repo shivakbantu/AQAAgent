@@ -13,6 +13,12 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!-- Defaults (can be overridden by Maven profiles or -D properties) -->
+        <suiteXmlFile>testng.xml</suiteXmlFile>
+        <env>local</env>
+        <browser>chrome</browser>
+        <app.url>https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</app.url>
+
         <selenium.version>4.21.0</selenium.version>
         <testng.version>7.10.2</testng.version>
         <cucumber.version>7.18.1</cucumber.version>

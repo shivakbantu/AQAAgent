@@ -13,6 +13,8 @@ This project provides a **Hybrid UI test automation framework** using:
 ## Project structure
 
 - `src/test/java/org/example/core`
+  cd "C:\Users\ShivaKumarBantu\Downloads\Selenium\AQAAgent"
+  git remote -v
   - Drivergit  lifecycle (`DriverManager`, `DriverFactory`)
   - Base test (`BaseTest`) for TestNG tests
   - Config (`Config`, `ConfigLoader`) reading `src/test/resources/config/*.properties`
