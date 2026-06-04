@@ -14,16 +14,15 @@ public final class LoginCredentialsBuilder {
     }
 
     public static LoginCredentials fromEnvOrSystemProps() {
-        String user = firstNonBlank(
-                System.getProperty("app.username"),
-                System.getenv("ORANGEHRM_USERNAME"),
-                "Admin" // demo fallback
-        );
-        String pass = firstNonBlank(
-                System.getProperty("app.password"),
-                System.getenv("ORANGEHRM_PASSWORD"),
-                "admin123" // demo fallback
-        );
+        String user = firstNonBlank(System.getProperty("app.username"), System.getenv("ORANGEHRM_USERNAME"));
+        String pass = firstNonBlank(System.getProperty("app.password"), System.getenv("ORANGEHRM_PASSWORD"));
+
+        if (isBlank(user) || isBlank(pass)) {
+            throw new IllegalStateException(
+                    "Missing credentials. Set ORANGEHRM_USERNAME / ORANGEHRM_PASSWORD env vars "
+                            + "or pass -Dapp.username / -Dapp.password system properties."
+            );
+        }
 
         return LoginCredentials.builder()
                 .withUsernameFromEnv("ORANGEHRM_USERNAME", user)
@@ -38,5 +37,9 @@ public final class LoginCredentialsBuilder {
             }
         }
         return "";
+
+    private static boolean isBlank(String s) {
+        return s == null || s.trim().isEmpty();
+    }
     }
 }
