@@ -7,12 +7,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * POM for OrangeHRM Dashboard page (selectors verified via Playwright MCP).
-// Used by: TC_002 (TestRail Case ID: 149)
-
  */
 public class DashboardPage {
 
-    // Playwright-confirmed selector; header text should equal "Dashboard"
+    // Confirmed via Playwright MCP (do not guess)
     private static final By DASHBOARD_HEADER = By.cssSelector("h6.oxd-topbar-header-breadcrumb-module");
 
     private final WebDriver driver;
