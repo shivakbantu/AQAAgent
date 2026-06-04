@@ -5,6 +5,7 @@
             <class name="org.example.tests.LoginTest"/>
             <class name="org.example.tests.TC002VerifySuccessfulLoginRedirectsToDashboardTest"/>
         </classes>
+            <class name="org.example.tests.TC003VerifySuccessfulLoginWithValidCredentialsTest"/>
     </test>
 </suite>
 
