@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
+// Factory used by: TC_002 (TestRail Case ID: 149)
+
  * Factory pattern for page object creation.
  */
 public final class PageObjectFactory {
