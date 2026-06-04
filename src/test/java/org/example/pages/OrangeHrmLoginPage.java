@@ -16,6 +16,7 @@ public class OrangeHrmLoginPage {
     private static final By USERNAME_INPUT = By.cssSelector("input[name='username']");
     private static final By PASSWORD_INPUT = By.cssSelector("input[name='password']");
     private static final By LOGIN_BUTTON   = By.cssSelector("button[type='submit']");
+    private static final By LOGIN_HEADING  = By.xpath("//h5[normalize-space()='Login']");
 
     private final WebDriver driver;
     private final ElementActions actions;
@@ -28,6 +29,7 @@ public class OrangeHrmLoginPage {
     public void open(String url) {
         driver.get(url);
         // Guard: login form should be visible
+        actions.visible(LOGIN_HEADING);
         actions.visible(USERNAME_INPUT);
         actions.visible(PASSWORD_INPUT);
         actions.visible(LOGIN_BUTTON);
@@ -54,3 +56,11 @@ public class OrangeHrmLoginPage {
                 && !driver.findElements(LOGIN_BUTTON).isEmpty();
     }
 }
+
+
+    /**
+     * Used for negative assertion: login page URL should no longer be displayed after successful login.
+     */
+    public boolean isCurrentUrlLogin() {
+        return driver.getCurrentUrl().contains("/web/index.php/auth/login");
+    }
