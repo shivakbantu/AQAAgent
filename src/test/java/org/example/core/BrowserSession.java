@@ -2,6 +2,8 @@ package org.example.core;
 
 import org.openqa.selenium.WebDriver;
 
+// Test coverage: TC_002 (TestRail Case ID: 149)
+
 /**
  * Singleton session manager (single instance).
  * Note: Driver instances remain ThreadLocal via DriverManager to keep parallel safety.
