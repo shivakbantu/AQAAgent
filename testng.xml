@@ -6,6 +6,6 @@
             <class name="org.example.tests.TC002VerifySuccessfulLoginRedirectsToDashboardTest"/>
         </classes>
             <class name="org.example.tests.TC003VerifySuccessfulLoginWithValidCredentialsTest"/>
-    </test>
+            <class name="org.example.tests.TC003VerifySuccessfulLoginWithValidCredentialsTest"/>
 </suite>
 
